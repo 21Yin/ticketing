@@ -6,4 +6,5 @@ import com.assessment.ticketing.authManagement.domain.response.AuthResponse;
 public interface AuthService {
     String register(AuthRequest request);
     AuthResponse login(AuthRequest request);
+    void logout(String tokenHeader);
 }

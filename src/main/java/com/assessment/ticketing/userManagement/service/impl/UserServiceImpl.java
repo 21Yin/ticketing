@@ -19,8 +19,11 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     @Override
-    public Page<UserResponse> getAllUsers(Pageable pageable) {
-            return userRepository.findAll(pageable)
+    public Page<UserResponse> getAllUsers(String query, Pageable pageable) {
+        String normalizedQuery = (query == null || query.trim().isEmpty()) ? null : query.trim();
+
+
+        return userRepository.searchByUsername(query, pageable)
                     .map(user -> new UserResponse(
                             user.getId(),
                             user.getUsername(),

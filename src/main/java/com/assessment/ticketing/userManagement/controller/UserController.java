@@ -30,11 +30,12 @@ public class UserController extends BaseController {
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<GlobalResponse<Page<UserResponse>>> getAllUsers(
+            @RequestParam(required = false) String query,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
     ) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("username").ascending());
-        Page<UserResponse> userPage = userService.getAllUsers(pageable);
+        Page<UserResponse> userPage = userService.getAllUsers(query, pageable);
 
         return createResponse(
                 HttpStatus.OK,

@@ -1,8 +1,6 @@
 package com.assessment.ticketing.security;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
@@ -51,14 +49,35 @@ public class JwtUtil {
     }
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-        final Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
-        return claimsResolver.apply(claims);
+        try {
+            final Claims claims = Jwts.parserBuilder().setSigningKey(key).build()
+                    .parseClaimsJws(token).getBody();
+            return claimsResolver.apply(claims);
+        } catch (ExpiredJwtException ex) {
+            throw ex;
+        } catch (JwtException ex) {
+            throw new RuntimeException("Invalid JWT token", ex);
+        }
     }
+
     public String getUserIdFromJwtToken(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
-    private Boolean isTokenExpired(String token) {
-        return extractExpiration(token).before(new Date());
+    public boolean isTokenExpired(String token) {
+        try {
+            Date expiration = extractExpiration(token);
+            return expiration.before(new Date());
+        } catch (ExpiredJwtException ex) {
+            return true;
+        } catch (JwtException ex) {
+            throw new RuntimeException("Invalid JWT token", ex);
+        }
     }
+
+    public boolean validateTokenThrowing(String token, String username) throws ExpiredJwtException, JwtException {
+        final String tokenUsername = extractUsername(token);
+        return (tokenUsername.equals(username) && !isTokenExpired(token));
+    }
+
 }

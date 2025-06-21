@@ -20,6 +20,31 @@ public class GlobalExceptionHandler {
 
     private final MessageBundle messageBundle;
 
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> handleGenericException(Exception ex) {
+        return new ResponseEntity<>(
+                createErrorResponse(ErrorCodeConstants.ERR_COM001, messageBundle.getMessage(ErrorCodeConstants.ERR_COM001), LocalDateTime.now()),
+                HttpStatus.INTERNAL_SERVER_ERROR
+        );
+    }
+
+    @ExceptionHandler(io.jsonwebtoken.MalformedJwtException.class)
+    public ResponseEntity<ErrorResponse> handleMalformedJwtException(io.jsonwebtoken.MalformedJwtException ex) {
+        return new ResponseEntity<>(
+                createErrorResponse(ErrorCodeConstants.ERR_JWT004, messageBundle.getMessage(ErrorCodeConstants.ERR_JWT004), LocalDateTime.now()),
+                HttpStatus.UNAUTHORIZED
+        );
+    }
+
+    @ExceptionHandler(io.jsonwebtoken.security.SignatureException.class)
+    public ResponseEntity<ErrorResponse> handleSignatureException(io.jsonwebtoken.security.SignatureException ex) {
+        return new ResponseEntity<>(
+                createErrorResponse(ErrorCodeConstants.ERR_JWT005, messageBundle.getMessage(ErrorCodeConstants.ERR_JWT005), LocalDateTime.now()),
+                HttpStatus.UNAUTHORIZED
+        );
+    }
+
+
 
     @ExceptionHandler(ExpiredJwtException.class)
     public ResponseEntity<ErrorResponse> handleExpiredJwtException(ExpiredJwtException ex) {
