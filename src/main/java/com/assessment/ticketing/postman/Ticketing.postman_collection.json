@@ -1,0 +1,604 @@
+{
+	"info": {
+		"_postman_id": "44988a37-7a6b-480f-bd2f-687c14d4c04a",
+		"name": "Ticketing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28981783"
+	},
+	"item": [
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "Create Ticket(EMPLOYEE)",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\r\n    \"data\": {\r\n        \"id\": 2,\r\n        \"ticketNo\": \"TICK-1750532764124\",\r\n        \"ticketOwnerName\": \"test1\",\r\n        \"type\": \"OVERTIME\",\r\n        \"startDate\": \"2025-06-24\",\r\n        \"endDate\": \"2025-06-25\",\r\n        \"remark\": \"Ot request\",\r\n        \"status\": \"PENDING\"\r\n    },\r\n    \"message\": \"Success\",\r\n    \"successCode\": null,\r\n    \"timestamp\": \"2025-06-22T01:36:04.1592898+06:30\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get employee own ticket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tickets"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/tickets",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets"
+									]
+								}
+							},
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\r\n    \"data\": {\r\n        \"content\": [\r\n            {\r\n                \"id\": 2,\r\n                \"ticketNo\": \"TICK-1750532764124\",\r\n                \"ticketOwnerName\": \"test1\",\r\n                \"type\": \"OVERTIME\",\r\n                \"startDate\": \"2025-06-24\",\r\n                \"endDate\": \"2025-06-25\",\r\n                \"remark\": \"Ot request\",\r\n                \"status\": \"PENDING\"\r\n            },\r\n            {\r\n                \"id\": 3,\r\n                \"ticketNo\": \"TICK-1750535707691\",\r\n                \"ticketOwnerName\": \"test1\",\r\n                \"type\": \"ONDUTY\",\r\n                \"startDate\": \"2025-06-24\",\r\n                \"endDate\": \"2025-06-25\",\r\n                \"remark\": \"late request\",\r\n                \"status\": \"PENDING\"\r\n            }\r\n        ],\r\n        \"pageable\": {\r\n            \"pageNumber\": 0,\r\n            \"pageSize\": 10,\r\n            \"sort\": {\r\n                \"empty\": false,\r\n                \"unsorted\": false,\r\n                \"sorted\": true\r\n            },\r\n            \"offset\": 0,\r\n            \"unpaged\": false,\r\n            \"paged\": true\r\n        },\r\n        \"last\": true,\r\n        \"totalPages\": 1,\r\n        \"totalElements\": 2,\r\n        \"size\": 10,\r\n        \"number\": 0,\r\n        \"sort\": {\r\n            \"empty\": false,\r\n            \"unsorted\": false,\r\n            \"sorted\": true\r\n        },\r\n        \"numberOfElements\": 2,\r\n        \"first\": true,\r\n        \"empty\": false\r\n    },\r\n    \"message\": \"Success\",\r\n    \"successCode\": null,\r\n    \"timestamp\": \"2025-06-22T02:25:18.3952709+06:30\"\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Get Pending Ticket (ADMIN)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MDUzMjkyMSwiZXhwIjoxNzUwNTY4OTIxfQ.XOu2eO-urGJlaEpwkDyQnKSKsGrzKmKRArNyf7Xei1M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tickets/PENDING",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tickets",
+								"PENDING"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Pending Ticket (ADMIN)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/tickets/PENDING",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets",
+										"PENDING"
+									]
+								}
+							},
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\r\n    \"data\": {\r\n        \"content\": [\r\n            {\r\n                \"id\": 2,\r\n                \"ticketNo\": \"TICK-1750532764124\",\r\n                \"ticketOwnerName\": \"test1\",\r\n                \"type\": \"OVERTIME\",\r\n                \"startDate\": \"2025-06-24\",\r\n                \"endDate\": \"2025-06-25\",\r\n                \"remark\": \"Ot request\",\r\n                \"status\": \"PENDING\"\r\n            }\r\n        ],\r\n        \"pageable\": {\r\n            \"pageNumber\": 0,\r\n            \"pageSize\": 10,\r\n            \"sort\": {\r\n                \"empty\": false,\r\n                \"unsorted\": false,\r\n                \"sorted\": true\r\n            },\r\n            \"offset\": 0,\r\n            \"unpaged\": false,\r\n            \"paged\": true\r\n        },\r\n        \"last\": true,\r\n        \"totalPages\": 1,\r\n        \"totalElements\": 1,\r\n        \"size\": 10,\r\n        \"number\": 0,\r\n        \"sort\": {\r\n            \"empty\": false,\r\n            \"unsorted\": false,\r\n            \"sorted\": true\r\n        },\r\n        \"numberOfElements\": 1,\r\n        \"first\": true,\r\n        \"empty\": false\r\n    },\r\n    \"message\": \"Success\",\r\n    \"successCode\": null,\r\n    \"timestamp\": \"2025-06-22T02:24:01.9596959+06:30\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Approved Ticket (ADMIN)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MDUzMjkyMSwiZXhwIjoxNzUwNTY4OTIxfQ.XOu2eO-urGJlaEpwkDyQnKSKsGrzKmKRArNyf7Xei1M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tickets/APPROVED",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tickets",
+								"APPROVED"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/tickets/APPROVED",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets",
+										"APPROVED"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": {\r\n        \"content\": [\r\n            {\r\n                \"id\": 1,\r\n                \"ticketNo\": \"TICK-1750532594224\",\r\n                \"ticketOwnerName\": \"test\",\r\n                \"type\": \"LEAVE\",\r\n                \"startDate\": \"2025-06-24\",\r\n                \"endDate\": \"2025-06-25\",\r\n                \"remark\": \"Annual leave request\",\r\n                \"status\": \"APPROVED\"\r\n            }\r\n        ],\r\n        \"pageable\": {\r\n            \"pageNumber\": 0,\r\n            \"pageSize\": 10,\r\n            \"sort\": {\r\n                \"empty\": false,\r\n                \"unsorted\": false,\r\n                \"sorted\": true\r\n            },\r\n            \"offset\": 0,\r\n            \"unpaged\": false,\r\n            \"paged\": true\r\n        },\r\n        \"last\": true,\r\n        \"totalPages\": 1,\r\n        \"totalElements\": 1,\r\n        \"size\": 10,\r\n        \"number\": 0,\r\n        \"sort\": {\r\n            \"empty\": false,\r\n            \"unsorted\": false,\r\n            \"sorted\": true\r\n        },\r\n        \"numberOfElements\": 1,\r\n        \"first\": true,\r\n        \"empty\": false\r\n    },\r\n    \"message\": \"Success\",\r\n    \"successCode\": null,\r\n    \"timestamp\": \"2025-06-22T02:23:31.2998866+06:30\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Rejected Ticket(ADMIN)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MDUzMjkyMSwiZXhwIjoxNzUwNTY4OTIxfQ.XOu2eO-urGJlaEpwkDyQnKSKsGrzKmKRArNyf7Xei1M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tickets/REJECTED",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tickets",
+								"REJECTED"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/tickets/REJECTED",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets",
+										"REJECTED"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": {\r\n        \"content\": [\r\n            {\r\n                \"id\": 3,\r\n                \"ticketNo\": \"TICK-1750535707691\",\r\n                \"ticketOwnerName\": \"test1\",\r\n                \"type\": \"ONDUTY\",\r\n                \"startDate\": \"2025-06-24\",\r\n                \"endDate\": \"2025-06-25\",\r\n                \"remark\": \"late request\",\r\n                \"status\": \"REJECTED\"\r\n            }\r\n        ],\r\n        \"pageable\": {\r\n            \"pageNumber\": 0,\r\n            \"pageSize\": 10,\r\n            \"sort\": {\r\n                \"empty\": false,\r\n                \"unsorted\": false,\r\n                \"sorted\": true\r\n            },\r\n            \"offset\": 0,\r\n            \"unpaged\": false,\r\n            \"paged\": true\r\n        },\r\n        \"last\": true,\r\n        \"totalPages\": 1,\r\n        \"totalElements\": 1,\r\n        \"size\": 10,\r\n        \"number\": 0,\r\n        \"sort\": {\r\n            \"empty\": false,\r\n            \"unsorted\": false,\r\n            \"sorted\": true\r\n        },\r\n        \"numberOfElements\": 1,\r\n        \"first\": true,\r\n        \"empty\": false\r\n    },\r\n    \"message\": \"Success\",\r\n    \"successCode\": null,\r\n    \"timestamp\": \"2025-06-22T02:27:03.9224498+06:30\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Ticket Status (ADMIN)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MDUzMjkyMSwiZXhwIjoxNzUwNTY4OTIxfQ.XOu2eO-urGJlaEpwkDyQnKSKsGrzKmKRArNyf7Xei1M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"REJECTED\" //APPROVED,REJECTED\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tickets/3/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tickets",
+								"3",
+								"status"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ticket not found error",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"timestamp\": \"2025-06-22T01:52:10.4758683\",\r\n    \"errorCode\": \"ERR_TICKET_001\",\r\n    \"errorMessage\": \"Ticket not found.\"\r\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": {\r\n        \"id\": 1,\r\n        \"ticketNo\": \"TICK-1750532594224\",\r\n        \"ticketOwnerName\": \"test\",\r\n        \"type\": \"LEAVE\",\r\n        \"startDate\": \"2025-06-24\",\r\n        \"endDate\": \"2025-06-25\",\r\n        \"remark\": \"Annual leave request\",\r\n        \"status\": \"APPROVED\"\r\n    },\r\n    \"message\": \"Success\",\r\n    \"successCode\": null,\r\n    \"timestamp\": \"2025-06-22T01:52:53.649793+06:30\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Tickets (ADMIN)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MDUzMjkyMSwiZXhwIjoxNzUwNTY4OTIxfQ.XOu2eO-urGJlaEpwkDyQnKSKsGrzKmKRArNyf7Xei1M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tickets/all?page=0&size=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tickets",
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": {\r\n        \"content\": [\r\n            {\r\n                \"id\": 1,\r\n                \"ticketNo\": \"TICK-1750532594224\",\r\n                \"ticketOwnerName\": \"test\",\r\n                \"type\": \"LEAVE\",\r\n                \"startDate\": \"2025-06-24\",\r\n                \"endDate\": \"2025-06-25\",\r\n                \"remark\": \"Annual leave request\",\r\n                \"status\": \"APPROVED\"\r\n            },\r\n            {\r\n                \"id\": 2,\r\n                \"ticketNo\": \"TICK-1750532764124\",\r\n                \"ticketOwnerName\": \"test1\",\r\n                \"type\": \"OVERTIME\",\r\n                \"startDate\": \"2025-06-24\",\r\n                \"endDate\": \"2025-06-25\",\r\n                \"remark\": \"Ot request\",\r\n                \"status\": \"PENDING\"\r\n            }\r\n        ],\r\n        \"pageable\": {\r\n            \"pageNumber\": 0,\r\n            \"pageSize\": 5,\r\n            \"sort\": {\r\n                \"empty\": false,\r\n                \"unsorted\": false,\r\n                \"sorted\": true\r\n            },\r\n            \"offset\": 0,\r\n            \"unpaged\": false,\r\n            \"paged\": true\r\n        },\r\n        \"last\": true,\r\n        \"totalElements\": 2,\r\n        \"totalPages\": 1,\r\n        \"size\": 5,\r\n        \"number\": 0,\r\n        \"sort\": {\r\n            \"empty\": false,\r\n            \"unsorted\": false,\r\n            \"sorted\": true\r\n        },\r\n        \"numberOfElements\": 2,\r\n        \"first\": true,\r\n        \"empty\": false\r\n    },\r\n    \"message\": \"Success\",\r\n    \"successCode\": null,\r\n    \"timestamp\": \"2025-06-22T02:00:55.7255077+06:30\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "All User(ADMIN)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MDUzMjkyMSwiZXhwIjoxNzUwNTY4OTIxfQ.XOu2eO-urGJlaEpwkDyQnKSKsGrzKmKRArNyf7Xei1M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/user?query=&page&size",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": ""
+								},
+								{
+									"key": "page",
+									"value": null
+								},
+								{
+									"key": "size",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": {\r\n        \"content\": [\r\n            {\r\n                \"id\": 1,\r\n                \"username\": \"admin\",\r\n                \"roles\": [\r\n                    \"ROLE_ADMIN\"\r\n                ]\r\n            },\r\n            {\r\n                \"id\": 2,\r\n                \"username\": \"test\",\r\n                \"roles\": [\r\n                    \"ROLE_EMPLOYEE\"\r\n                ]\r\n            },\r\n            {\r\n                \"id\": 3,\r\n                \"username\": \"test1\",\r\n                \"roles\": [\r\n                    \"ROLE_EMPLOYEE\"\r\n                ]\r\n            }\r\n        ],\r\n        \"pageable\": {\r\n            \"pageNumber\": 0,\r\n            \"pageSize\": 10,\r\n            \"sort\": {\r\n                \"empty\": false,\r\n                \"unsorted\": false,\r\n                \"sorted\": true\r\n            },\r\n            \"offset\": 0,\r\n            \"unpaged\": false,\r\n            \"paged\": true\r\n        },\r\n        \"last\": true,\r\n        \"totalElements\": 3,\r\n        \"totalPages\": 1,\r\n        \"size\": 10,\r\n        \"number\": 0,\r\n        \"sort\": {\r\n            \"empty\": false,\r\n            \"unsorted\": false,\r\n            \"sorted\": true\r\n        },\r\n        \"numberOfElements\": 3,\r\n        \"first\": true,\r\n        \"empty\": false\r\n    },\r\n    \"message\": \"Success\",\r\n    \"successCode\": null,\r\n    \"timestamp\": \"2025-06-22T02:02:25.23092+06:30\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "user register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"test\",\r\n    \"password\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"test\",\r\n    \"password\":\"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": \"User registered successfully\",\r\n    \"message\": \"Success\",\r\n    \"successCode\": null,\r\n    \"timestamp\": \"2025-06-22T01:31:19.9456178+06:30\"\r\n}\r\n"
+						},
+						{
+							"name": "Account Already exist error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"test\",\r\n    \"password\":\"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\r\n    \"timestamp\": \"2025-06-22T01:31:39.289976\",\r\n    \"errorCode\": \"ERR_COM002\",\r\n    \"errorMessage\": \"Account already exist\"\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"data\": {\r\n        \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MDUzMjQ1OCwiZXhwIjoxNzUwNTY4NDU4fQ.m3p3gUfpbW2ii5MqXvjVWZqwMK8rZ7uCHo-E_D1J8d0\",\r\n        \"username\": \"admin\"\r\n    },\r\n    \"message\": \"Success\",\r\n    \"successCode\": null,\r\n    \"timestamp\": \"2025-06-22T01:30:58.5430146+06:30\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"data\": \"User logged out successfully\",\r\n    \"message\": \"Success\",\r\n    \"successCode\": null,\r\n    \"timestamp\": \"2025-06-22T03:12:25.1502162+06:30\"\r\n}"
+				},
+				{
+					"name": "logout",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n    \"error\": \"JWT token expired\"\r\n}"
+				},
+				{
+					"name": "Already Logout",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"timestamp\": \"2025-06-22T03:45:45.1733073\",\r\n    \"errorCode\": \"ERR_TKT003\",\r\n    \"errorMessage\": \"Already Logout\"\r\n}"
+				}
+			]
+		}
+	]
+}
